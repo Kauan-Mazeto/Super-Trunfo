@@ -14,17 +14,16 @@ body {
 }
 
 .container {
-  background: radial-gradient(#1a1a1a, #000);
+  background: transparent;
   padding: 40px;
   border-radius: 25px;
-  box-shadow: 0 0 25px rgba(0, 123, 255, 0.3);
   width: 90%;
   max-width: 1200px;
 }
 
 h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 3em;
+  font-size: 80px;
   color: royalblue;
   text-shadow: 0 0 10px royalblue;
 }
@@ -32,81 +31,163 @@ h1 {
 p {
   color: #ccc;
   margin-bottom: 30px;
+  font-size: 30px;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas */
+    gap: 30px; /* Espaçamento entre as cartas */
+    justify-content: center;
+    padding: 20px 0;
 }
 
 .card {
-  background: #121212;
-  border: 2px solid royalblue;
-  border-radius: 20px;
-  width: 250px;
-  overflow: hidden;
-  transition: transform 0.4s ease;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-  cursor: pointer;
-  position: relative;
+    background-color: transparent; /* Fundo transparente para o efeito 3D */
+    width: 250px; /* Largura da carta */
+    height: 350px; /* Altura da carta */
+    perspective: 1000px; /* Perspectiva para o efeito 3D */
+    margin: 0 auto; /* Centraliza a carta no grid */
+    cursor: pointer;
 }
 
-.card:hover {
-  animation: scale 0.6s infinite alternate ease-in-out;
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s; /* Transição suave para o efeito de virar */
+    transform-style: preserve-3d; /* Preserva o 3D durante a rotação */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-@keyframes scale {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.05);
-  }
+.card:hover .card-inner {
+    transform: rotateY(180deg); /* Vira a carta ao passar o mouse */
 }
 
-.card .cima,
-.card .baixo {
-  padding: 20px;
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Esconde a parte de trás da carta ao virar */
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
+.card-front {
+    background: linear-gradient(135deg, #34495e, #2c3e50); /* Gradiente de azul para a frente */
+    color: #ecf0f1;
+    border: 3px solid #1246f3; /* Borda laranja */
 }
 
-.card h2 {
-  margin-top: 10px;
-  font-size: 1.3em;
-  color: royalblue;
+.card-front img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ecf0f1;
 }
 
-.card .baixo {
-  background: #1a1a1a;
-  border-top: 1px solid royalblue;
+.card-front h2 {
+    font-size: 1.8em;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.card .baixo h3 {
-  margin-bottom: 10px;
-  color: #5caeff;
+.card-back {
+    background: linear-gradient(135deg, #34495e, #2c3e50); /* Gradiente de laranja para o verso */
+    color: #fff;
+    transform: rotateY(180deg); /* Posiciona o verso para trás */
+    border: 3px solid #1246f3; /* Borda azul */
 }
 
-.card table {
-  width: 100%;
-  border-collapse: collapse;
+.card-back h3 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.card th, .card td {
-  padding: 8px;
-  border-bottom: 1px solid #444;
-  color: #ccc;
-  text-align: left;
+.card-back ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 200px;
 }
 
-.card th {
-  font-weight: bold;
-  color: #fff;
+.card-back li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.card-back strong {
+    color: #fff;
+}
+
+.super-trunfo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #27ae60;
+    margin-top: 20px;
+    background-color: rgba(0,0,0,0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.not-super-trunfo {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ecf0f1;
+    margin-top: 20px;
+    background-color: rgba(0,0,0,0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .card {
+        width: 200px;
+        height: 280px;
+    }
+
+    .card-front img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .card {
+        width: 180px;
+        height: 250px;
+    }
 }
