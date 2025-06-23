@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url(imagens/espaço.gif);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #ecf0f1;
+    text-align: center;
+    overflow: hidden;
+}
+
+.quadro {
+    position: relative;
+    width: 50%;
+    height: 80vh;
+    max-height: 900px;
+    background: radial-gradient( rgb(19, 19, 19), rgb(0, 0, 0));
+    border-radius: 25px;
+    box-shadow: 10px 10px 30px rgba(14, 14, 14, 0.6),
+                -10px -10px 30px rgba(34, 34, 34, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.8em;
+    color: rgb(203, 175, 17);
+    text-shadow: 0 1px 5px rgba(203, 175, 17, 0.662);
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.03);
+    }
+}
+
+p {
+    font-size: 30px;
+    margin-bottom: 18%;
+    line-height: 1.6;
+    text-shadow: 0 1px 5px #bdc3c7c2;
+    color: #bdc3c7;
+    max-width: 650px;
+}
+
+.escolhas{
+  display: flex;
+  flex-direction: row;
+  gap: 50%;
+  margin-right: 17%;
+}
+
+#Marvel{
+  color: rgb(138, 6, 6);
+  text-shadow: 0 2px 5px rgb(138, 6, 6);
+}
+
+#DC{
+  color: rgb(9, 9, 125);
+  text-shadow: 0 2px 5px rgb(9, 9, 125);
+}
+
+a{
+  font-size: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a:hover{
+  transform: scale(1.2);
+}
