@@ -21,6 +21,12 @@ body {
   max-width: 1200px;
 }
 
+a img{
+  width: 3%;
+  height: auto;
+  margin-right: 100%;
+}
+
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 80px;
