@@ -17,7 +17,18 @@ body {
   border-radius: 25px;
   width: 90%;
   max-width: 1200px;
+  animation: entrada-suave 0.8s ease-out both;
 }
+
+@keyframes entrada-suave {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 
 a img{
   width: 3%;
@@ -162,36 +173,4 @@ p {
     padding: 5px 10px;
     border-radius: 5px;
     letter-spacing: 1px;
-}
-
-/* Responsividade básica */
-@media (max-width: 768px) {
-    .card-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .card {
-        width: 200px;
-        height: 280px;
-    }
-
-    .card-front img {
-        max-width: 150px;
-        height: auto;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.8em;
-    }
-
-    .card {
-        width: 180px;
-        height: 250px;
-    }
 }
