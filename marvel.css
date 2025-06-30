@@ -49,19 +49,19 @@ p {
 }
 
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas */
-    gap: 30px; /* Espaçamento entre as cartas */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
     justify-content: center;
     padding: 20px 0;
 }
 
 .card {
-    background-color: transparent; /* Fundo transparente para o efeito 3D */
-    width: 250px; /* Largura da carta */
-    height: 350px; /* Altura da carta */
-    perspective: 1000px; /* Perspectiva para o efeito 3D */
-    margin: 0 auto; /* Centraliza a carta no grid */
+    background-color: transparent; 
+    width: 250px;
+    height: 350px; 
+    perspective: 1000px; 
+    margin: 0 auto; 
     cursor: pointer;
 }
 
@@ -70,21 +70,20 @@ p {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s; /* Transição suave para o efeito de virar */
-    transform-style: preserve-3d; /* Preserva o 3D durante a rotação */
+    transition: transform 0.8s; 
+    transform-style: preserve-3d; 
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 20px rgba(158, 28, 28, 0.5);
 }
 
 .card:hover .card-inner {
-    transform: rotateY(180deg); /* Vira a carta ao passar o mouse */
+    transform: rotateY(180deg); 
 }
 
 .card-front, .card-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Esconde a parte de trás da carta ao virar */
     backface-visibility: hidden;
     border-radius: 15px;
     display: flex;
@@ -96,9 +95,9 @@ p {
 }
 
 .card-front {
-    background: linear-gradient(135deg, #34495e, #2c3e50); /* Gradiente de azul para a frente */
+    background: linear-gradient(135deg, #34495e, #2c3e50); 
     color: #ecf0f1;
-    border: 3px solid #f31212; /* Borda laranja */
+    border: 3px solid #f31212; 
 }
 
 .card-front img {
@@ -117,17 +116,10 @@ p {
 }
 
 .card-back {
-    background: linear-gradient(135deg, #34495e, #2c3e50); /* Gradiente de laranja para o verso */
+    background: linear-gradient(135deg, #34495e, #2c3e50);
     color: #fff;
-    transform: rotateY(180deg); /* Posiciona o verso para trás */
-    border: 3px solid #f31212; /* Borda azul */
-}
-
-.card-back h3 {
-    font-size: 1.6em;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    transform: rotateY(180deg); 
+    border: 3px solid #f31212; 
 }
 
 .card-back ul {
@@ -158,7 +150,7 @@ p {
 .super-trunfo {
     font-size: 1.5em;
     font-weight: bold;
-    color: #27ae60; /* Verde vibrante */
+    color: #27ae60;
     margin-top: 20px;
     background-color: rgba(0,0,0,0.2);
     padding: 5px 10px;
